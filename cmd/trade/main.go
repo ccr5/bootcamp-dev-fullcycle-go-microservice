@@ -21,7 +21,7 @@ func main() {
 	kafkaMsgChan := make(chan *ckafka.Message)
 	configMap := &ckafka.ConfigMap{
 		"bootstrap.servers": "host.docker.internal:9094",
-		"group_id":          "myGroup",
+		"group.id":          "myGroup",
 		"auto.offset.reset": "latest",
 	}
 
@@ -36,12 +36,12 @@ func main() {
 	go func() {
 		for msg := range kafkaMsgChan {
 			wg.Add(1)
+			fmt.Println(string(msg.Value))
 			tradeInput := dto.TradeInput{}
 			err := json.Unmarshal(msg.Value, &tradeInput)
 			if err != nil {
 				panic(err)
 			}
-
 			order := transformer.TransformInput(tradeInput)
 			ordersIn <- order
 		}
@@ -49,11 +49,11 @@ func main() {
 
 	for res := range ordersOut {
 		output := transformer.TransformOutput(res)
-		outputJson, err := json.MarshalIndent(output, "", " ")
+		outputJson, err := json.MarshalIndent(output, "", "  ")
+		fmt.Println(string(outputJson))
 		if err != nil {
 			fmt.Println(err)
 		}
-
 		producer.Publish(outputJson, []byte("orders"), "output")
 	}
 }
