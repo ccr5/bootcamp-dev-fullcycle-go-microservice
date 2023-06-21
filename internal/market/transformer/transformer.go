@@ -1,8 +1,8 @@
 package transformer
 
 import (
-	"github.com/ccr5/hackathon-dev-fullstack/internal/market/dto"
-	"github.com/ccr5/hackathon-dev-fullstack/internal/market/entity"
+	"github.com/ccr5/bootcamp-dev-fullcycle-go-microservice/internal/market/dto"
+	"github.com/ccr5/bootcamp-dev-fullcycle-go-microservice/internal/market/entity"
 )
 
 func TransformInput(input dto.TradeInput) *entity.Order {

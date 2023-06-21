@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ccr5/hackathon-dev-fullstack/internal/infra/kafka"
-	"github.com/ccr5/hackathon-dev-fullstack/internal/market/dto"
-	"github.com/ccr5/hackathon-dev-fullstack/internal/market/entity"
-	"github.com/ccr5/hackathon-dev-fullstack/internal/market/transformer"
+	"github.com/ccr5/bootcamp-dev-fullcycle-go-microservice/internal/infra/kafka"
+	"github.com/ccr5/bootcamp-dev-fullcycle-go-microservice/internal/market/dto"
+	"github.com/ccr5/bootcamp-dev-fullcycle-go-microservice/internal/market/entity"
+	"github.com/ccr5/bootcamp-dev-fullcycle-go-microservice/internal/market/transformer"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 )
 

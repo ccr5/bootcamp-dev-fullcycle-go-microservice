@@ -1,4 +1,4 @@
-module github.com/ccr5/hackathon-dev-fullstack
+module github.com/ccr5/bootcamp-dev-fullcycle-go-microservice
 
 go 1.20
 
